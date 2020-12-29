@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IF</title>
+</head>
+<body>
+    <script>
+        if(true){
+            console.log('true');
+        }
+
+        if(1){
+            console.log('1');
+        }
+
+        if(0){
+            console.log('true');
+        }else {
+            console.log('false');
+        }
+
+        // 문자열이 하나도 없는 경우 false
+        var msg = '안녕';
+        if(msg){
+            console.log(msg);
+        }
+
+        // 값이 있건없건 주소값이 있을 경우 true -- 
+        var arr = [];
+        if(arr){
+            console.log('Array');
+        }
+
+        // 객체 생성
+        var obj = {};
+        if(obj){
+            console.log('Object')
+        } 
+        // --------------------------------------- 
+    </script>
+</body>
+</html>

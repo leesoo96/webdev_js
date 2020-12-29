@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>가변인자</title>
+</head>
+<body>
+    <script>
+     function sum(n1){
+        console.log(arguments.length); // 5
+
+        var sum = 0;
+        for(var i=0; i<arguments.length; i++){
+            sum += arguments[i];
+        }
+        console.log('인자 합계 = ' + sum);
+     }
+     sum(10,20,30,40,50);
+
+     function multi(n1, n2, n3){
+        console.log(arguments.length); // 2
+
+         if(n1 && n2 && n3){
+             console.log(n1 * n2 * n3); // false로 콘솔창표시X
+         }
+     }
+     multi(10,20); 
+    </script>
+</body>
+</html>

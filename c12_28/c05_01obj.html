@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>객체</title>
+</head>
+<body>
+    <script>
+        function human(name, age){
+            this.name = name;
+            this.age = age;
+
+            this.intro = function() {
+                console.log('제 이름은 ' + this.name + '이고 ' 
+                             + this.age +'살 입니다.');
+            }
+        }
+        // 객체를 이용해 메소드를 추가할 경우 prototype를 사용하는 것이 국룰
+        human.prototype.showAge = function(){
+            console.log('My age is ' + this.age);
+        }
+
+        var h1 = new human('크리스',26);
+        h1.height = 180;
+        h1.intro();
+        h1.showAge();
+
+        console.log('h1.height : ' + h1.height);
+
+        delete h1.height; // 변수 삭제
+
+        console.log('h1.height : ' + h1['height']); // -> h1.height : undefined
+
+        //console.log('h2.height : ' + h2.height); -> Cannot read property 'height' of undefined
+
+        var h2 = h1;
+        h2.age = 30;
+        h2.intro();
+        h2.showAge();
+
+    </script>
+</body>
+</html>

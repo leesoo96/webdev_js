@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>function</title>
+</head>
+<body>
+    <script>
+      function noReturn(item = 'default value'){
+          console.log(item);
+      }
+      noReturn(2021);
+      noReturn('ㅇㅇ','ㅎㅎ'); // 'ㅇㅇ'
+      noReturn(); // default value
+     
+      function existReturn(item){
+          return item + '리턴';
+      }
+      console.log(existReturn(10));
+    </script>
+</body>
+</html>

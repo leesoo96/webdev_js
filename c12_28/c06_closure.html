@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    <script>
+        function makeObj(){
+            var count = 0;
+            // 원래는 소멸되는 변수가 계속 살아있다 -> 클로저
+            return {
+                addCount : function(){
+                    count++;
+                },
+                printCount : function(){
+                    console.log('count : ' + count);
+                }
+            }
+        }
+
+        var obj1 = makeObj();
+        var obj2 = makeObj();
+
+        obj1.addCount();
+        obj1.printCount();
+
+        obj2.printCount();
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>if and or</title>
+</head>
+<body>
+    <script>
+      function chk1(){
+        console.log('chk1 called');
+        return 1;
+      }
+
+      function chk2(){
+        console.log('chk2 called');
+        return ''; // 빈 문자열일 경우 false
+      }
+
+      function chk3(){
+        console.log('chk3 called');
+        return {};
+      }
+
+      function chk4(){ // return이 없어서 false 
+        console.log('chk4 called');
+      }
+
+      if(chk1() && chk2() && chk3() && chk4()){
+        console.log('완료');
+      }
+
+      console.log('---');
+
+      if(chk1() || chk2() || chk3() || chk4()){
+        console.log('완료');
+      }
+
+      console.log('---');
+
+      if(chk1() && chk2() || chk3() || chk4()){ 
+        console.log('완료');
+      }
+    </script>
+</body>
+</html>
