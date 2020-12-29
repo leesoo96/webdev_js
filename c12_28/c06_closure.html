@@ -9,7 +9,8 @@
     <script>
         function makeObj(){
             var count = 0;
-            // 원래는 소멸되는 변수가 계속 살아있다 -> 클로저
+            // 원래는 소멸되는 변수가 계속 살아있다 
+            // 내부 함수에서 외부 함수의 지역변수에 접근 -> 클로저
             return {
                 addCount : function(){
                     count++;

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클로저 보충</title>
+</head>
+<body>
+    <script>
+        function outter(){ // 외부함수
+            var text = '클로저';
+            return function(){ // 내부함수 
+                alert(text);
+            }
+        }
+
+        var inner = outter(); 
+        inner(); 
+        // alert()의 기능만 있어야하는데 
+        // 외부함수의 변수인 text가 출력된다 
+        // 내부 함수에서 외부 함수의 지역변수에 접근
+    </script>
+</body>
+</html>

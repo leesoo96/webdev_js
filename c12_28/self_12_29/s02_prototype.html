@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype Chain</title>
+</head>
+<body>
+    <script>
+        function Ultra(){}
+        Ultra.prototype.objProp = 100;
+
+        function Parent(){}
+        Parent.prototype = new Ultra();
+
+        function Child(){}
+        Child.prototype = new Parent();
+        Child.prototype.objProp = 10;
+    
+        var i = new Child();
+        console.log(i.objProp); // 10
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클로저 ++</title>
+</head>
+<body>
+    <script>
+        var arr = [];
+        for(var i = 0; i < 3; i++){
+            arr[i] = function(id){
+                return function(){
+                   return id;
+                }
+            }(i);
+            // 매개변수 id의 값으로 
+            // 외부함수의 지역변수 i 값을 받아서
+            // 내부 함수에게 전달한다 
+        }
+
+        for(var index in arr){
+            console.log(arr[index]());
+        }
+    </script>
+</body>
+</html>
