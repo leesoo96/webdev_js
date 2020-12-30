@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback func</title>
+</head>
+<body>
+    <script>
+       function calc(n1, n2, func){
+           var sum = 0;
+           sum += func(n1); // 5 + 2
+           console.log(sum); // sum = 7
+
+                           // 7 -> sum에 이미 들어있는 값
+           sum += func(n2); // 7 + 8 + 2
+           console.log(sum); // 17
+
+           return sum;
+       }
+
+       var result = calc(5, 8, function(val){
+            return val + 2;
+       });
+
+       console.log('result : ' + result);
+    </script>
+</body>
+</html>

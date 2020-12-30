@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow function</title>
+</head>
+<body>
+    <script>
+        const print = function(){
+            console.log('print');
+        };
+        print();
+
+        // Arrow function
+        const simplePrint = () => {
+            return console.log('simplePrint');
+        }
+        simplePrint();
+
+        const add = (a, b) => a + b;
+
+        function hello(){
+            console.log('IIFE');
+        }
+        // hello(); 
+
+        // IIFE - 함수를 바로 생성 + 실행 
+        (function hello(){
+            console.log('IIFE');
+        })(); 
+
+        // function calc(command, a, b)
+        // command : 연산
+    </script>
+</body>
+</html>

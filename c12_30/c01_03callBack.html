@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback func</title>
+</head>
+<body>
+    <script>
+       var arr = [4,9,11,16,29,28,33];
+
+    // for(var i = 0; i < arr.length; i++){
+    //    console.log(arr[i]);
+    // } 
+       arr.forEach(function(item){
+          console.log(item);
+       });
+
+       // 객체 안의 속성이름으로 숫자를 줄 수 있다 
+       var myArr = {
+            0: 4,
+            1: 9,
+            2: 11,
+            3: 16, 
+            4: 29, 
+            5: 28,
+            6: 33,
+            length: 7,
+            forEach: function(a) {
+                for(var i = 0; i < this.length; i++){
+                   console.log(this[i]);
+                }
+            }
+       };
+
+       myArr.forEach(print);
+    </script>
+</body>
+</html>

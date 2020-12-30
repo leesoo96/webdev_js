@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parameter</title>
+</head>
+<body>
+    <script>
+        function message(msg, from = 'unknown'){
+            console.log(`${msg} by ${from}`);
+        }
+        message('안녕');
+
+        // Rest Parameters - ES6 
+        function printAll(...args){
+        /*  for(let i = 0; i < args.length; i++){
+                console.log(args[i]);
+            }
+        */
+            for (const arg of args) {
+                console.log(arg);
+            }
+
+        //  args.forEach((args) => console.log(args));
+        }
+        printAll('하나','둘','셋','넷');
+   </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback</title>
+</head>
+<body>
+    <script>
+        function quiz(answer, printYes, printNo){
+            if(answer === 'ok'){
+                printYes();
+            }else{
+                printNo();
+            }
+        }
+
+        // anonymous function
+        const printYes = function(){
+            console.log('yes!');
+        }
+
+        // named function
+        const printNo = function print(){
+            console.log('no!');
+        }
+
+        quiz('wrong', printYes, printNo);
+        quiz('ok', printYes, printNo);
+    </script>
+</body>
+</html>

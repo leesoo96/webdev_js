@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter</title>
+</head>
+<body>
+    <script>
+        var arr1 = [4,9,11,16,29,28,33];
+        var arr2 = arr1.filter(function(val){
+         return val % 2 == 0; // 짝수
+        });
+
+        console.log('arr1 : ' + arr1);
+        console.log('arr2 : ' + arr2);
+
+        var myArr = {
+            0: 4,
+            1: 9,
+            2: 11,
+            3: 16, 
+            4: 29, 
+            5: 28,
+            6: 33,
+            length: 7,
+            filter: function(callback){
+                var temp = [];
+
+                for(var i = 0; i < this.length; i++){
+                    var n = this[i];
+                    if(callback(n)){
+                        temp.push(n);
+                    }
+                }
+
+                return temp;
+            }
+       };
+
+       var arr3 = myArr.filter(function(val){
+        return val % 2 == 0; 
+       });
+       console.log('arr3 : ' + arr3);
+
+    </script>
+</body>
+</html>

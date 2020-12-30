@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback func</title>
+</head>
+<body>
+    <script>
+      var arr1 = [4,9,11,16,29,28,33];
+      var arr2 = arr1.map(function(item){
+         return item + 2;
+      });
+
+      console.log('arr1 : ' + arr1);
+      console.log('arr2 : ' + arr2);
+      
+      var myArr = {
+            0: 4,
+            1: 9,
+            2: 11,
+            3: 16, 
+            4: 29, 
+            5: 28,
+            6: 33,
+            length: 7,
+            map: function(callback){
+                 var temp = [];
+
+                 for(var i = 0; i < this.length; i++){
+                    var result = callback(this[i]);
+                 
+                    temp.push(result);
+                 }
+
+                 return temp;
+               }
+       };
+
+       var arr3 = myArr.map(function(item){
+         return item + 2;
+       });
+
+       console.log('arr3 : ' + arr3);
+    </script>
+</body>
+</html>

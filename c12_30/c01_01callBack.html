@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback func</title>
+</head>
+<body>
+    <script>
+        function calc(a1, a2, func){
+            func(a1, a2);
+        }
+
+        function sum(a, b){
+            console.log('sum : ' + (a+b));
+        }
+
+        sum(10, 20);
+        calc(1, 2, sum);
+         
+        // 콜백함수는 대개 익명함수로써 많이 쓰인다
+        calc(5, 5, function(a, b){
+            console.log(a * b);
+            console.log(a + ',' + b);
+        });
+    </script>
+</body>
+</html>
