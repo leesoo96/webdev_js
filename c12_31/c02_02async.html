@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async</title>
+</head>
+<body>
+    <script>
+        function func1(n1, n2){
+            setTimeout(function(){
+                func2(n1 + n2);
+            },2000);
+        }
+
+        function func2(val){
+            setTimeout(function(){
+                let result = val * 2;
+                console.log(result);
+            },1000);
+        }
+
+        func1(3,5);
+    </script>
+</body>
+</html>

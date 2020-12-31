@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getter / setter</title>
+</head>
+<body>
+    <script>
+        class Info {
+            constructor(firstName, lastName, age){
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+            }
+
+            get age(){
+                return this._age;
+            }
+
+            set age(value){
+                this._age = value < 0 ? 0 : value;
+            }
+        }
+
+        const user1 = new Info('Ariana', 'grande', -1);
+        console.log(user1.age);
+    </script>
+</body>
+</html>

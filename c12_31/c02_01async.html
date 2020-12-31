@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async</title>
+</head>
+<body>
+    <script>
+        function func1(){
+            setTimeout(function(){
+                console.log('3초가 지났습니다.');
+                func2();
+            },3000);
+        }
+
+        function func2(){
+            setTimeout(function(){
+                console.log('2초가 지났습니다.');
+            },2000);
+        }
+
+        func1();
+        // func2();
+    </script>
+</body>
+</html>

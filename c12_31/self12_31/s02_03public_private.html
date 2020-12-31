@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>public / private / static</title>
+</head>
+<body>
+    <script>
+        // 도입된지 얼마안됨
+       class Access {
+           publicField = 2;
+
+           // #을 붙여주면 private. 외부에서 읽을 수도, 쓸 수도 없음
+           #privateField = 0;
+       }
+
+       const access = new Access();
+       console.log(access.publicField); // 2
+       console.log(access.privateField); // undefined 
+
+       class Static {
+           static job = 'developer';
+
+           constructor(dream) {
+               this.dream = dream;
+           }
+
+           static printJob(){
+               console.log(Static.job);
+           }
+       }
+
+       const s1 = new Static(1);
+       const s2 = new Static(2);
+
+       console.log(s1.job); // undefinded
+
+       console.log(Static.job);  // developer
+       Static.printJob();  // developer
+
+       // static은 클래스로 접근
+    </script>
+</body>
+</html>

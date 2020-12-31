@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reject</title>
+</head>
+<body>
+    <script>
+        calc = (n1, n2) => {
+            return new Promise((resolve, reject) => {
+                let result = n1 / n2;
+                if(result == Infinity){
+                    reject('문제가 발생하였습니다!');
+                }else{
+                    resolve(result);
+                }
+            });
+        }
+
+        calc(10,2).then((val) => {
+            console.log(val);
+        }).catch((val) => {
+            console.log('err = ' + val);
+        }).then(() => {
+            console.log('오류에 상관없이 마지막 실행 - 1');
+        });
+
+        calc(10,0).then((val) => {
+            console.log(val);
+        }).catch((val) => {
+            console.log('err = ' + val);
+        }).then(() => {
+            console.log('오류에 상관없이 마지막 실행 - 2');
+        });
+    </script>
+</body>
+</html> 

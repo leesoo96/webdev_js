@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>func exam</title>
+</head>
+<body>
+    <script>
+        // 입력받은 command에 따라 a와 b를 연산
+        // function calc(command, a, b)
+        // command : 연산
+
+        calc1 = (command, a, b) => {
+            if(command == 'add'){
+                console.log(a+b);
+            }else if(command == 'divide'){
+                console.log(a/b);
+            }
+        }
+        calc1('add', 10,20);
+        calc1('divide', 10, 2);
+
+        function calc2(command, a, b) {
+            switch(command){
+                case 'add' :
+                    return a+b;
+                    break;
+                case 'substract' :
+                    return a-b;
+                    break;
+                case 'multiply' :
+                    return a*b;
+                    break;
+                case 'divide' :
+                    return a/b;
+                    break;
+                default:
+                    throw Error('알수없는 연산입니다.');
+            }
+        }
+
+        console.log(calc2('add', 10, 20));
+        console.log(calc2('multiply', 7, 7));
+
+    </script>
+</body>
+</html>

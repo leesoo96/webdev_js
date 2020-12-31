@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+</head>
+<body>
+    <script>
+// class -> 데이터를 넣기위한 틀 - template
+// object -> 데이터를 넣는 것 - instance of a class 
+    
+    // 클래스 선언
+    class Person {
+        constructor(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        // methods
+        speak(){
+            console.log(`${this.name} : hello!`);
+        }
+    }
+
+    // Object 생성
+    const me = new Person('Ariana', 26);
+    console.log(me.name);
+    console.log(me.age);
+    me.speak();
+    </script>
+</body>
+</html>

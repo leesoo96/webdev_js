@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reject</title>
+</head>
+<body>
+    <script>
+        calc = (n1, n2) => {
+            return new Promise((resolve, reject) => {
+                let result = n1 / n2;
+                if(result == Infinity){
+                    reject('문제가 발생하였습니다!');
+                }else{
+                    resolve(result);
+                }
+            });
+        }
+
+        async function proc() {
+            try{
+                let val = await calc(5, 0);
+                console.log('val = ' + val);
+            }
+            catch(e){
+                console.log('error = ' + e);
+            }
+            finally {
+                console.log('finally');
+            }
+        }
+        proc();
+    </script>
+</body>
+</html> 

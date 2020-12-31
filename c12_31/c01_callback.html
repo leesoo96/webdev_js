@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback 한번 더</title>
+</head>
+<body>
+    <script>
+        function calc(n1, n2, func){
+            func(n1, n2);
+        }
+
+        function sum(a, b){
+            console.log(`${a} + ${b} = ${a+b}`);
+        }
+
+        function multi(a, b){
+            console.log(`${a} * ${b} = ${a*b}`);
+        }
+
+        calc(10, 20, sum);
+        calc(10, 20, multi);
+    </script>
+</body>
+</html>

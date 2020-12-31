@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상속과 다양성</title>
+</head>
+<body>
+    <script>
+        class Shape {
+            constructor(width, height, color){
+                this.width = width;
+                this.height = height;
+                this.color = color;
+            }
+
+            draw() {
+                console.log(`drawing ${this.color} color of`);
+            }
+
+            getArea() {
+                return this.width * this.height;
+            }
+        }
+
+        class Rectangle extends Shape {}
+        class Triangle extends Shape {
+            // Overriding
+            draw() {
+                super.draw();
+                console.log('▲');
+            }
+            getArea() {
+                return this.width * this.height / 2;
+            }
+        }
+
+        const rectangle = new Rectangle(100, 20, 'blue');
+        rectangle.draw();
+        console.log(rectangle.getArea());
+
+        const triangle = new Triangle(100, 20, 'green');
+        triangle.draw();
+        console.log(triangle.getArea());
+
+        // instanceOf
+        console.log(rectangle instanceof Rectangle); // t
+        console.log(triangle instanceof Rectangle); // f
+        console.log(triangle instanceof Triangle); // t
+        console.log(triangle instanceof Shape); // t
+        console.log(triangle instanceof Object); // t
+    </script>
+</body>
+</html>
