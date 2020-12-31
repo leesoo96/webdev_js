@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object - key</title>
+</head>
+<body>
+    <script>
+        const ari = {
+            name : 'ari',
+            age : 26
+        }
+
+        // key 접근 - 항상 String 타입으로 받아와야한다 
+        console.log(ari.name);
+        console.log(ari['name']); 
+
+        ari['hasjob'] = true;
+        console.log(ari.hasjob);
+
+        printValue = (obj, key) => {
+            console.log(obj[key]);
+        // 어떤 키를 받아오는지 정확하게 모를 때에는 []를 사용해야한다
+        }
+        printValue(ari, 'name');
+
+        // Constructor function 
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            // return this
+        }
+
+        const person = new Person('chris', '30');
+        console.log(person);
+
+        // key in obj -> 키가 있는지 확인
+        console.log('name' in ari); // t
+        console.log('age' in ari); // t
+        console.log('job' in ari); // f
+    </script>
+</body>
+</html>

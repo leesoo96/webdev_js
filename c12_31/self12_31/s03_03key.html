@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object - key</title>
+</head>
+<body>
+    <script>
+        const ari = {
+            name : 'ari',
+            age : 26
+        }
+
+        // for in / for of
+        // for (key in obj)
+        for (key in ari) {
+            console.log(key);
+        }
+        // for (value of iterable)
+        const array = [10,20,30,40,50];
+        for (value of array) {
+            console.log(value);
+        } // 일반 for문보다 더 간단
+
+        // cloning ---------------------
+        const user = ari;
+        user.name = 'brown';
+        console.log(user);
+                             // target, value 
+        const user2 = Object.assign({}, user);
+         // object 복사 -> Object.assign
+        console.log(user2);
+
+        // example
+        const item1 = {color : 'red'};
+        const item2 = {color : 'blue', size : 'small'};
+        const mixed = Object.assign({}, item1, item2);
+        console.log(mixed.color); 
+        // blue -> 뒤에 나오는 obj가 동일한 속성이 있다면 덮어씌워진다 
+        console.log(mixed.size);
+    </script>
+</body>
+</html>

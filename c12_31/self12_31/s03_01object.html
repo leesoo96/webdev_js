@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+       /* const name = 'ariana';
+        const age = 26;
+        print(name, age); */
+
+        function print(person){
+            console.log(person.name);
+            console.log(person.age);
+        }
+
+        const ariana = {
+            name : 'ariana',
+            age : 26
+        }
+
+        print(ariana);
+
+        const obj1 = {}; // object literal
+        const obj2 = new Object(); // object constructor
+
+        // js는 properties를 나중에 추가할 수 있고 삭제도 가능하다
+        ariana.hasJob = true;
+        console.log(ariana.hasJob);
+
+        delete ariana.hasJob;
+        console.log(ariana.hasJob);
+
+        /* object = { 
+            key : value
+           };
+        */
+    </script>
+</body>
+</html>
