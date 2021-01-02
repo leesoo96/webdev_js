@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+</head>
+<body>
+    <div id="container"></div>
+    <button onclick="getImg()">getImg</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        let page = 1;
+
+        getImg = () => {
+            let url = `https://picsum.photos/v2/list?page=${page++}&limit=18`;
+            
+            axios.get(url).then((res) => {
+                if(res.status === 200){
+                    res.data.forEach(item => {
+                        makeEle(item);
+                    });
+                }
+            });
+        }
+
+        makeEle = (item) => {
+            let img = document.createElement('img');
+            let container = document.getElementById('container');
+
+            // = <img src="">
+            img.src = `https://picsum.photos/id/${item.id}/300`;
+
+            container.append(img);
+        }
+    </script>
+</body>
+</html>

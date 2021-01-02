@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array</title>
+</head>
+<body>
+    <script>
+        const sweet = ['cookie','macaron'];
+
+        // splice - remove an item by index position
+        sweet.push('cake','candy');
+        console.log(sweet); // "cookie", "macaron", "cake", "candy"
+
+        // sweet.splice(1); -> "cookie"
+        sweet.splice(1, 1); // 1번째 인덱스부터 시작해서 1개 삭제
+        console.log(sweet); // "cookie", "cake", "candy"
+
+        sweet.splice(1, 1, 'snak', 'latte');
+        console.log(sweet); // "cookie", "snak", "latte", "candy"
+
+        // concat - combine two arrays
+        const fruit = ['apple','peach'];
+        const food = sweet.concat(fruit);
+        console.log(food); // "cookie", "snak", "latte", "candy", "apple", "peach"
+    
+        // searching
+        console.log(food.indexOf('cookie')); // 0
+        console.log(food.indexOf('choco')); // -1
+        console.log(food.includes('apple')); // t
+        console.log(food.includes('choco')); // f
+
+        // lastIndexOf
+        food.push('peach');
+        console.log(food);
+        console.log(food.indexOf('peach')); // 5 
+        console.log(food.lastIndexOf('peach')); // 6 
+    </script>
+</body>
+</html>

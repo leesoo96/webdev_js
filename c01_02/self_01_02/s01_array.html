@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array</title>
+</head>
+<body>
+    <script>
+        // Declaration
+        const arr1 = new Array();
+        const arr2 = [10,20];
+
+        // index
+        const sweet = ['cookie','macaron'];
+        console.log(sweet);
+        console.log(sweet.length);
+        console.log(sweet[0]);
+        console.log(sweet[2]); // undefined
+        console.log(sweet.length - 1); // 1 
+
+        console.clear();
+
+        // loop
+        for(let i = 0; i < sweet.length; i++){
+            console.log(sweet[i]);
+        }
+
+        for (const dessert of sweet) {
+            console.log(dessert);
+        }
+                      // string(dessert), index, array
+        sweet.forEach(dessert => {
+            console.log(dessert);
+        });
+
+    </script>
+</body>
+</html>

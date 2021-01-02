@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json</title>
+</head>
+<body>
+<!-- JSON
+    데이터를 주고받을 수 있는 가장 간단한 형식
+    텍스트 기반
+    key-value
+    프로그래밍 언어 제한X
+-->
+    <script>
+        // 1.Object to JSON
+        let json = JSON.stringify(true);
+        console.log(json);
+
+        json = JSON.stringify(['one', 'two']);
+        console.log(json);
+
+        const coffee = {
+            name: 'latte',
+            color: 'brown',
+            size: null,
+            make: new Date(), // 문자열임
+            drink: () => {
+                console.log(`${name} drink`);
+            }
+        };
+        json = JSON.stringify(coffee);
+        console.log(json); // 함수는 Object의 데이터가 아니기때문에 포함X
+
+        json = JSON.stringify(coffee, ["name"]);
+        console.log(json); // {"name":"latte"}
+
+        json = JSON.stringify(coffee, (key, value) => {
+            console.log(`key : ${key} / value : ${value}`);
+            return key === 'name' ? 'star' : value;
+        });
+        console.log(json);
+
+        console.clear();
+        
+        // 2.JSON to Object    String, reviver
+        const obj = JSON.parse(json, (key, value) => {
+            console.log(`key : ${key} / value : ${value}`);
+            return key === 'make' ? new Date(value) : value;
+            // 문자열을 Date로 전환
+        });
+        console.log(obj);
+        coffee.drink();
+        // obj.drink(); 
+        // 함수는 Object의 데이터가 아님 -> JSON에 없음 -> error 발생
+        
+        console.log(coffee.make.getDate());
+        console.log(obj.make.getDate());
+
+        // https://ko.javascript.info/json -> 부가설명참조
+    </script>
+</body>
+</html>

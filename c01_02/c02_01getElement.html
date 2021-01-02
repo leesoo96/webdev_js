@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElement</title>
+</head>
+<body>
+    <input type="text" id="one"><br/>
+    <input type="text" id="two">
+    <button onclick="confirm()">submit</button>
+
+    <script>
+        confirm = () => {
+           let inputTag1 = document.getElementById('one'); // old 
+           let inputTag2 = document.querySelector('#two'); 
+           
+           // inputTag1.value = 'abc'; 값 교체 
+           // inputTag1.value = inputTag1.value + '123'; 값 추가 
+        
+        }
+    </script>
+</body>
+</html>

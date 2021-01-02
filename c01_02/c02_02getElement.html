@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElement</title>
+</head>
+<body>
+    <input type="number" id="one"><br/>
+    <input type="number" id="two"><br/>
+    <input type="number" id="result" readonly>
+    <button onclick="sum()">sum</button>
+
+    <script>
+        let inputTag1 = document.querySelector('#one'); 
+        let inputTag2 = document.querySelector('#two'); 
+        let result = document.querySelector('#result'); 
+
+        sum = () => {
+                  // or parseInt(->실수 정수로 바꿀 때 사용)
+           let sum = Number(inputTag1.value) + Number(inputTag2.value);
+
+           result.value = sum;
+        }
+    </script>
+</body>
+</html>

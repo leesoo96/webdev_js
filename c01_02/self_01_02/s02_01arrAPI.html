@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array</title>
+</head>
+<body>
+    <script>
+        const sweet = ['cookie','macaron'];
+
+        // push - add an item to the end
+        sweet.push('cake');
+        console.log(sweet); // "cookie", "macaron", "cake"
+
+        // pop - remove an item from the end
+        const poped = sweet.pop();
+        console.log(sweet); // "cookie", "macaron"
+        console.log(poped); // cake
+        
+        // unshift - add an item to the beginning
+        sweet.unshift('candy');
+        console.log(sweet); // "candy", "cookie", "macaron"
+
+        // shift - remove an item from the beginning
+        sweet.shift();
+        console.log(sweet); // "cookie", "macaron"
+
+        // shift, unshift are slower than pop, push!!!!!!!!!!!!!!!!!
+    </script>
+</body>
+</html>
