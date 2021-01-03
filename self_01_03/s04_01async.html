@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async</title>
+</head>
+<body>
+    <script>
+        function fetchUser() {
+            return new Promise((resolve, reject) => {
+                // return 'ariana'; // pending -> 계속 실행 중 
+                // code change
+                resolve('ariana')
+            });
+        }
+
+        const user1 = fetchUser();
+        user1.then(console.log);
+        
+        // async -> promise를 더 간단히 쓸 수 있음!
+        async function fetchUser() {
+            return 'ariana';
+        }
+
+        const user2 = fetchUser();
+        user2.then(console.log);
+    </script>
+</body>
+</html>

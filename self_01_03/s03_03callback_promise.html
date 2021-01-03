@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback - promise</title>
+</head>
+<body>
+    <script>
+        class User {
+            loginUser(id, password, onSuccess, onError) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                    if(id === 'ari' && password === '2021'){
+                            resolve(id);
+                       }else {
+                            reject(new Error('Not Found!!'));
+                       }
+                    }, 2000);
+                });
+            }
+            
+            getRoles(id) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        if(id === 'ari'){
+                            resolve({
+                                name: 'ariana',
+                                role: 'admin'
+                            })
+                        }else {
+                            reject(new Error('No Access'));
+                        }
+                    }, 1000);
+                });
+            }
+
+             // async, await
+            async getUserRole(id, password){
+                const login = await this.loginUser(id, password);
+                const role = await this.getRoles(login);
+
+                return role;
+            }
+        }
+
+        const client = new User();
+        id = prompt('아이디 입력');
+        password = prompt('비밀번호 입력');
+        
+        // client.loginUser(id, pwd, (ok) => {
+        //                     client.getRoles(id, (cRole) => {
+        //                        console.log(`${cRole.role} : ${cRole.name} 님, 환영합니다^~^/`);
+        //                     }, err => console.log(err));   
+        //                 }, err => console.log(err));
+
+        // client.loginUser(id, pwd)
+        //       .then(id => client.getRoles(id))
+        //       .then(roleName => console.log(
+        //           `${roleName.role} : ${roleName.name} 님, 환영합니다^~^/`
+        //        ))
+        //       .catch(console.log)
+
+        client.getUserRole()
+              .catch(console.log)
+              .then(console.log);
+ </script>
+</body>
+</html>

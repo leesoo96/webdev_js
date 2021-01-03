@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>await</title>
+</head>
+<body>
+    <script>
+       function delay(ms){
+            return new Promise(resolve => setTimeout(resolve, ms));
+       }    
+
+       async function getA(){
+           await delay(2000); // delay()가 끝날 때까지 기다린다
+           return 'A';
+       }
+
+       async function getB(){
+           await delay(1000);
+           return 'B';
+       }
+
+    //  function pick(){
+    //      return getA().then(a => {
+    //          return getB().then(b => `${a} + ${b}`);
+    //      });
+    //   }
+
+    // code modify
+        async function pick(){
+            // await 병렬처리방법 - 순차적(직렬)처리X
+            const aPromise = getA(); 
+            const bPromise = getB();
+            const a = await aPromise;
+            const b = await bPromise;
+          
+            return `${a} + ${b}`;
+        }    
+
+       pick().then(console.log);
+
+    // promise API
+    function pickNew() {
+        // all -> 병렬처리 API
+        return Promise.all([getA(), getB()])
+                      .then(char => char.join(' / '));
+    }
+    pickNew().then(console.log);
+
+    // race -> 가장 먼저 리턴되는 값이 전달된다
+    function pickOnlyOne() {
+        return Promise.race([getA(), getB()]);
+    }
+    pickOnlyOne().then(console.log) // B 
+    </script>
+</body>
+</html>

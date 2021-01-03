@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+</head>
+<body>
+    <script>
+        // promise -> 비동기를 간단히 해결해주는 obj
+
+        // state - 상태
+        // pending -> fulfilled or rejected
+
+        // producer - 제공
+        const promise = new Promise((resolve, reject) => {
+            // doing some work - network , read files ...
+            console.log('doing somethig');
+            setTimeout(() => {
+                // resolve('ariana');
+                reject(new Error('no network'));
+            }, 2000);
+        });
+        // 새로운 promise를 만들 때 자동으로 executor가 실행된다!!
+
+        // consumer - 소비(사용) => then, catch, finally
+                 // resolve에 전달한 값이 value에 들어간다
+        promise.then((value) => {
+            console.log(value);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+        .finally(() => {
+            console.log('무조건 실행되는 부분입니다.');
+        });
+
+    </script>
+</body>
+</html>

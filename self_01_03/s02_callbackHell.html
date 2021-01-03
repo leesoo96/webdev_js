@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback</title>
+</head>
+<body>
+    <script>
+        class User {
+            loginUser(id, password, onSuccess, onError) {
+                setTimeout(() => {
+                    if(id === 'ariana' && password === '2021' ||
+                       id === 'grande' && password === '0103'){
+                           onSuccess(id);
+                       }else {
+                           onError(new Error('Not Found!!'));
+                       }
+                }, 2000);
+            }
+            
+            getRoles(id, onSuccess, onError) {
+                setTimeout(() => {
+                    if(id === 'ariana'){
+                        onSuccess({
+                            name: 'ariana',
+                            role: 'admin'
+                        });
+                    }else {
+                        onError(new Error('No Access'));
+                    }
+                }, 1000);
+            }
+        }
+
+        const client = new User();
+        id = prompt('아이디 입력');
+        pwd = prompt('비밀번호 입력');
+        
+        client.loginUser(id, pwd, (ok) => {
+                            client.getRoles(id, (cRole) => {
+                               console.log(`${cRole.role} : ${cRole.name} 님, 환영합니다^~^/`);
+                            }, err => console.log(err));   
+                        }, err => console.log(err));
+ </script>
+</body>
+</html>

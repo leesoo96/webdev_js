@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sync</title>
+</head>
+<body>
+    <script>
+        console.log('1');
+        setTimeout(() => {
+            console.log('2');
+        }, 1000);
+        console.log('3');
+
+        // sync
+        printImmediately = (print) => {
+            print();
+        }
+        printImmediately(() => console.log('hello'))
+
+        // Async
+        printWithDelay = (print, timemout) => {
+            setTimeout(print, timemout);
+        }
+        printWithDelay(() => console.log('비동기 콜백'), 2000);
+    </script>
+</body>
+</html>
