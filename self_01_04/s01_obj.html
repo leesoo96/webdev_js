@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            name: 'ari',
+            age: '15',
+        };
+        console.log(obj.name);
+
+        let obj2 = obj;
+        obj2.name = 'perry';
+        console.log(obj2.name);
+        console.log(obj.name);
+
+        const constObj = {
+            name: 'james'
+        };
+        // constObj = obj; -> 다른 객체를 참조하는 것은 불가능하다
+
+        // 객체 안의 값은 바꿀 수 있음!
+        console.log(constObj.name = 'taylor'); 
+        // 하지만 value값은 바꿀 수 있다 
+    </script>
+</body>
+</html>

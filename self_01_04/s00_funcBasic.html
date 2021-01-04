@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+<body>
+    <script>
+        function doSomething(add) {
+            // console.log('함수 보충 학습');
+            // console.log(add); -> 함수의 실행값이 아닌 함수 자체를 출력
+
+            const result = add(7,7);
+            console.log(result);
+        }
+
+        function add(a, b) {
+            const sum = a + b;
+            return sum;
+        }
+        const result = add(10,20);
+        console.log(result);
+
+        // 함수 호출 
+        doSomething(add);
+
+        const addFun = add;
+        // console.log(add);
+        console.log(addFun(10,10));
+    </script>
+</body>
+</html>
