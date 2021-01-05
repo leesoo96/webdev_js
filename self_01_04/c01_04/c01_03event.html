@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        let cont = document.querySelector('#container');
+        let div = document.createElement('div');
+        div.id = 'child';
+
+        // cont.prepend(div); -> cont의 첫번째 자식자리에 소속되게 된다
+        cont.append(div);  // -> cont의 마지막 자식자리에 소속되게 된다 
+        // prepend, append => 요소를 추가하는 것이 아니라 요소의 위치를 이동하는 것 
+
+        
+    </script>
+</body>
+</html>

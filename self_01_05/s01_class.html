@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+<body>
+    <script>
+        class Counter {
+            constructor(runEvery5Times) {
+                this.counter = 0;
+                this.callbackFunc = runEvery5Times;
+            }
+
+            // function 작성 안해도 됨
+            increase(runIf5times) {
+                this.counter++;
+                console.log(this.counter);
+
+                if(this.counter % 5 === 0){
+                                     // num
+                    // this.callbackFunc(this.counter);
+
+                    // 콜백함수가 있다면 그 함수를 실행 
+                    this.callbackFunc && this.callbackFunc(this.counter);
+                }
+            }
+        }
+                 // callbackFunc가 가리키고 있는 함수
+        function printSomething(num) {
+            console.log(`yoyo ${num}`);
+        }
+
+        const counter = new Counter(printSomething);
+      
+        for (let index = 0; index < 10; index++) {
+           counter.increase();
+        }
+    </script>
+</body>
+</html>

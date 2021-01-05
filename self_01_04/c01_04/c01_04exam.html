@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            width: 40px; height: 40px;
+            border: 1px solid hsl(202, 100%, 69%);
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    
+    <script>
+        let cont = document.querySelector('#container');
+        let inputColor = document.createElement('input');
+        // console.log(inputColor.type); 속성 바꾸기 전 text
+        inputColor.type = 'color';
+        
+        cont.append(inputColor);
+
+        let btnClear = document.createElement('input');
+        btnClear.type = 'button';
+        btnClear.value = 'clear';
+           
+        // btn을 클릭하면 색깔 일괄 제거
+        btnClear.onclick = function(e) {
+            let tdAll = document.querySelectorAll('td');
+            tdAll.forEach(function(e) {
+                e.style.backgroundColor = '';
+            })
+        }   
+        cont.append(btnClear);
+
+        // table을 만들고 20개의 tr안에 20개의 td 생성
+        let table = document.createElement('table');
+        let tableLength = 20;
+        for (let i = 0; i < tableLength; i++) {
+            let tr = document.createElement('tr');
+           
+            table.append(tr);
+
+            for (let j = 0; j < tableLength; j++) {
+                let td = document.createElement('td');
+
+                // 선택한 td의 색깔이 변경 -> 한번 더 누를경우 색깔제거
+                td.onclick = change;
+                
+                function change(e) {
+                    e.target.style.backgroundColor = e.target.style.backgroundColor ? '' : inputColor.value;
+                }
+                // 또는 
+                // if(e.target.style.backgroundColor = ''){
+                //     e.target.style.backgroundColor = inputColor.value;
+                // }else {
+                //     e.target.style.backgroundColor = '';
+                // }
+                
+                tr.append(td);
+            }
+        }
+        cont.append(table);
+     
+    </script>
+</body>
+</html>

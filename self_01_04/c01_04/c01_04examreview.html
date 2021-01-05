@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exam 복습</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            width: 40px;
+            height: 40px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="cont"></div>
+
+    <script>
+        let cont = document.querySelector('#cont');
+        let div = document.createElement('div');
+        cont.append(div);
+        let input = document.createElement('input');
+
+        let btn = document.createElement('input');
+        div.append(input);
+        div.append(btn);
+        input.type = 'color';
+        btn.type = 'button';
+        btn.value = 'RESET';
+
+        btn.onclick = function reset(e){
+            let tdAll = document.querySelectorAll('td');
+            tdAll.forEach((e) => {
+               e.style.backgroundColor = '';
+               // target 없음 => 객체 All
+            })
+        }
+
+        let table = document.createElement('table');
+        cont.append(table);
+
+        for (let i = 0; i < 10; i++) {
+           let tr = document.createElement('tr');
+           table.append(tr);
+
+           for (let j = 0; j < 10; j++) {
+                let td = document.createElement('td');
+                tr.append(td);
+
+                td.onclick = change;
+                function change(e){
+                    console.log(e.target);
+                    // e.target => event가 실제로 발생할 객체
+                    e.target.style.backgroundColor = e.target.style.backgroundColor ? '' : input.value;
+                }
+           }
+        }
+        
+        
+    </script>
+</body>
+</html>

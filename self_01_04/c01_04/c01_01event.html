@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+<body>
+    <input type="number" id="one"><br/>
+    <input type="number" id="two"><br/>
+    <input type="number" id="result" readonly>
+    <button id="btnSum">sum</button>
+
+    <script>
+        let inputTag1 = document.querySelector('#one'); 
+        let inputTag2 = document.querySelector('#two'); 
+        let result = document.querySelector('#result'); 
+        let btnSum = document.querySelector('#btnSum'); 
+        
+        sum = () => {
+           let num1 = Number(inputTag1.value);
+           let num2 = Number(inputTag2.value); 
+    
+           result.value = num1 + num2;
+        }
+        
+        // -> 결과값 == btnSum.onclick = sum; -> 참조값을 바로 전달
+        btnSum.onclick = (e) => sum(); // -> 익명함수를 이용하여 함수를 호출
+
+        // 이벤트 처리 삭제 -> onlick 을 null로 해주면 된다
+    </script>
+</body>
+</html>

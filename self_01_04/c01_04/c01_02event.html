@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+</head>
+<body>
+    <input type="number" id="one"><br/>
+    <input type="number" id="two"><br/>
+    <input type="number" id="result" readonly>
+    <button id="btnSum">sum</button>
+
+    <script>
+        let inputTag1 = document.querySelector('#one'); 
+        let inputTag2 = document.querySelector('#two'); 
+        let result = document.querySelector('#result'); 
+        let btnSum = document.querySelector('#btnSum'); 
+        
+        // 이벤트 추가
+        btnSum.addEventListener('click', sum);
+        btnSum.addEventListener('click', print);
+
+        // 이벤트 삭제
+        btnSum.onclick = null;
+        btnSum.removeEventListener('click', sum);
+        btnSum.removeEventListener('click', print);
+
+        function sum() {
+           let num1 = Number(inputTag1.value);
+           let num2 = Number(inputTag2.value); 
+    
+           result.value = num1 + num2;
+        }
+        
+        function print() {
+           let num1 = Number(inputTag1.value);
+           let num2 = Number(inputTag2.value); 
+           console.log(num1 + num2);
+        }
+    </script>
+</body>
+</html>

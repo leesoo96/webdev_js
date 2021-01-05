@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코드종 콜백</title>
+</head>
+<body>
+    <script>
+        // 동기적 실행(순차)
+        function faakeSetTimeout(callback, delay){
+            callback();
+        }
+
+        // console.log('1');
+        // faakeSetTimeout(function(){
+        //     console.log('fake');
+        // }, 0);
+        // 1 -> fake
+
+        // 비동기적 실행
+        console.log('1');
+        setTimeout(function(){
+            console.log('real');
+        }, 0);
+        console.log('2');
+        // 1 2 real 
+    </script>
+</body>
+</html>
