@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클로저 & 스코프체인</title>
+</head>
+<body>
+    <script>
+        // 스코프체인 : 스코프끼리 연결, 연결되어있는 것
+        var d = 'd';
+        function outter(){
+            var a = 1;
+            var b = 'b';
+
+            function inner() {
+                var a = 2;
+                console.log(b);
+            }
+            return inner();
+        }
+        var some = outter(); 
+        some; // 'b' -> 클로저 발생 
+
+
+    </script>
+</body>
+</html>

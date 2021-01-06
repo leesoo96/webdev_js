@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hoisting</title>
+</head>
+<body>
+    <script>
+        // function test(){
+        //     if(1){
+        //         var aa = 10;
+        //     }
+        //     console.log(`aa : ${aa}`);
+        // } -> hoisting
+        // 함수나 변수의 선언을 위로 올리는 것 
+        test();
+       
+        function test(){
+            if(0){
+                var aa = 10;
+            }
+            console.log(`aa : ${aa}`);
+        }
+        // let은 {}를 벗어나면 소멸된다 => hoisting XXXXXX
+        // arrow function도 hoisting이 안된다
+    </script>
+
+</body>
+</html>

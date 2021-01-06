@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="b1">one</button>
+    <button id="b2">two</button>
+    <button id="b3">three</button>
+    <script>
+        let btns = [
+            document.querySelector('#b1'),
+            document.querySelector('#b2'),
+            document.querySelector('#b3'),
+        ];
+        function setClick(){
+            for (let i = 0; i < btns.length; i++) {
+                btns[i].onclick = function () {
+                    // console.log(btns[i]);
+                    // var i의 경우 undefined로 나오지만 let은 각 버튼을 출력
+                    console.log(i);
+                // let과 var는 스코프가 달라서 var i를 해주면 같은 i를 가리킨다
+                // let i를 해주면 각 버튼을 가리켜서 각 값을 출력한다.
+                // let의 스코프 영역이 더 글로벌하다 
+                }
+            }
+        }
+        setClick();
+    </script>
+</body>
+</html>

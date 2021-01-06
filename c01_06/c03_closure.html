@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure</title>
+</head>
+<body>
+    <script>
+        function getObj() {
+            let num = 0;
+            return {
+                addNum : function() {
+                    num++;
+                },
+                printNum : function() {
+                    console.log(num);
+                }
+            }
+        }
+
+        let obj1 = getObj();
+        let obj2 = getObj();
+
+        obj1.addNum();
+        obj1.addNum(); // 함수 실행이 끝났음에도 num의 값이 살아있음 => Closure
+        obj1.printNum(); // 2 
+
+        obj2.addNum();
+        obj2.printNum(); // 1 
+    </script>
+</body>
+</html>

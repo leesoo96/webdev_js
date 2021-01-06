@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            110: 110,
+            120: 120,
+            130: 130
+        };
+
+        // console.log(obj[110]); // 1
+        // console.log(obj.hasOwnProperty(110)); // true
+        console.log(obj[110] !== undefined); // true
+        console.log(110 in obj); // true
+        
+        obj[140] = 1;
+        console.log(obj.hasOwnProperty(140)); // true
+        console.log(obj[140] !== undefined); // true
+
+    </script>
+</body>
+</html>

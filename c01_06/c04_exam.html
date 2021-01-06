@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            width: 50px; height: 50px;
+            border: 1px solid hsl(202, 100%, 69%);
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="확인" onclick="chk();">  
+    <div id="container"></div>
+    
+    <script>
+        let cont = document.querySelector('#container');
+        let table = document.createElement('table');
+        let tableLength = 20;
+        let no = 1; // td count number 
+
+        let chkArr = [];
+        function chk() {
+            console.log(chkArr);
+        }
+        function toggleVal(val) {
+            if(chkArr.indexOf(val) === -1){
+                // 기존에 값이 없었다면 
+                chkArr.push(val);
+            }else{
+                chkArr.splice(chkArr.indexOf(val), 1);
+            }
+        }
+
+        for (let i = 0; i < tableLength; i++) {
+            let tr = document.createElement('tr');
+           
+            table.append(tr);
+
+            for (let j = 0; j < tableLength; j++) {
+                let td = document.createElement('td');
+                td.innerHTML = `${no++}`;
+
+                td.onclick = function() {
+                    //           let을 쓰면 e.target 로 작성하지않아도 된다
+                    toggleVal(Number(td.innerHTML));
+                    // alert(`${i}, ${j}`); 
+                    td.style.backgroundColor = 
+                    td.style.backgroundColor ? '' : '#FE8369';
+                };
+              
+                tr.append(td);
+            }
+        }
+        cont.append(table);
+     
+    </script>
+</body>
+</html>

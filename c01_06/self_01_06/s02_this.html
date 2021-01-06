@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+</head>
+<body>
+    <h1>THIS</h1>
+    <button id="btn"><h2>HI</h2></button>
+
+    <script>
+       // this는 호출방법에 따라 결정된다 
+       // this ==> 누가 호출했는가
+       // 호출방법과 상관없이 this를 고정 => bind()
+
+       var someone = {
+           name: 'soo',
+           whoAmI : function () {
+               console.log(this);
+           }
+       };
+       someone.whoAmI();
+
+       // 전역에 위치해있기때문에 window가 나온 것!
+       var myWhoAmI = someone.whoAmI;
+       myWhoAmI();
+
+       // this를 someone으로 고정시키겠다 
+       var binded = myWhoAmI.bind(someone);
+       binded(); // {name: "soo", whoAmI: ƒ}
+
+       var btn = document.querySelector('#btn');
+    // btn.addEventListener('click',someone.whoAmI); // button 
+       btn.addEventListener('click', binded); // {name: "soo", whoAmI: ƒ}
+
+    </script>
+</body>
+</html>
