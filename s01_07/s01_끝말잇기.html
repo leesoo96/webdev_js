@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>끝말잇기</title>
+</head>
+<body>
+    <script>
+        for (let startWord = '나비잠'; true;) {
+            let newWord = prompt(startWord);
+            
+            if(startWord[startWord.length - 1] === newWord[0]){
+                if (newWord.length > 3 || newWord.length < 3) {
+                    alert('3글자 이상 혹은 미만은 입력할 수 없습니다.');
+                }else{
+                    startWord = newWord;
+                }
+            }
+            else{
+                alert('이을 단어는 제시어의 끝 단어로 시작해야합니다!');
+            }
+            
+        }
+    </script>
+</body>
+</html>
