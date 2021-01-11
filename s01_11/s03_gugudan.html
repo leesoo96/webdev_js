@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    while(true){
+       let num1 = Math.ceil(Math.random() * 9 + 1);
+       let num2 = Math.ceil(Math.random() * 9 + 1);
+       let multi = num1 * num2;
+       let boolean = true;
+
+       while(boolean){
+        let result = prompt(`${num1} 곱하기 ${num2} 는?`);
+
+        if(result) {
+            if (multi === result) {
+                alert('정답!');  
+            }else {
+                alert('오답!');
+            }
+        }
+        }
+    }
+   </script>
+</body>
+</html>

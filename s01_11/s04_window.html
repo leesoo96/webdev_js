@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 전역변수는 전역객체의 속성이 된다 
+        var a = 'a';
+        console.log(window.a); // a
+        // let 은 적용안됨
+
+        function remember() {
+            let height = 160;
+            console.log(height);
+        }
+        remember();
+        
+        console.log(window.height); // undefined
+
+        // 객체 형식처럼 확인된다
+        console.dir(document);
+        
+        // Document Object Model - DOM
+        
+    </script>
+</body>
+</html>

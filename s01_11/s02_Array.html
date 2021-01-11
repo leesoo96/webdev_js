@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 객체</title>
+</head>
+<body>
+ <script>
+    //  값 그룹화는 하고싶지만 속성이름을 따로 주지않을때 배열을 사용
+     let arr = [
+         'a',
+         'b',
+         'c',
+     ]
+
+     console.log(arr[0]);
+     console.log(arr[3]); // undefined
+     console.log(arr[-1]); // undefined
+
+     console.log(arr.length); 
+
+    //  배열같은 객체
+     let fakeArray = {
+         0: 'f',
+         1: 'a',
+         2: 'k',
+         3: 'e',
+         length: 3,
+     }
+     console.log(fakeArray[0]);
+     console.log(fakeArray.length);
+
+     console.log(Array.isArray(arr)); // true
+     console.log(Array.isArray(fakeArray)); // false
+     
+     
+ </script>
+</body>
+</html>
