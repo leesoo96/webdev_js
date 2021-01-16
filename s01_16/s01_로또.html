@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또</title>
+    <style>
+        .ball, .bonusBall {
+            display:inline-block;
+            border:3px solid rgb(0, 0, 0);
+            border-Radius:50px;
+            width: 50px;
+            height:50px;
+            text-align: center;
+            margin-left: 10px;
+            font-size: 2.5rem;
+        }
+    </style>
+</head>
+<body>
+    <button>번호 확인하기</button>
+    <div id="result">당첨번호</div><hr/>
+    <div class="bonus">보너스!</div>
+    <div class="result_Lotto"></div>
+
+    <script>
+        let btn = document.querySelector('button');
+        let lotto = document.querySelector('.result_Lotto');
+
+        let inputArray = [];
+        for (let i = 0; i < 6; i++) {
+            let inputNum = Number(prompt((i + 1) + '번째 숫자를 입력해주세요'));
+            inputArray.push(inputNum);
+        }
+        inputArray.sort(function (n1, n2) {
+            return n1 - n2;
+        })
+        console.log(inputArray);
+    
+        btn.onclick = function (e) {
+            e.preventDefault();
+            /*
+            let arr = Array(10);
+            arr.fill();
+            console.log(arr);
+            */
+            let lottoNum = Array(45).fill().map(function (ele, i) {
+            return i + 1;
+            });
+            console.log(lottoNum);
+
+            let mixNum = [];
+            while (lottoNum.length > 0) {
+            //                   랜덤한 숫자에서 하나씩 뽑는다
+            let value = lottoNum.splice(Math.floor(Math.random() * lottoNum.length), 1)[0];
+            mixNum.push(value);
+            };
+            console.log(mixNum); 
+        // for문은 정확하게 몇번을 반복해야할지 알때
+        // while문은 몇번을 반복해야하는지 불확실할때, 
+        // 조건값(기준값)이 계속 변할때
+
+            // 0번부터 5번까지의 숫자를 얻어온다
+            let winning = mixNum.slice(0, 6);
+            console.log(winning.sort(function (n1, n2) {
+            // 뺀 결과가 0보다 크면 순서를 바꾸기때문에 정렬이 된다 
+                return n1 - n2; // 오름차순 정렬
+            // n2 - n1 내림차순 정렬 
+            }));
+
+            let result = document.getElementById('result');
+
+            for (let i = 0; i < winning.length; i++) {
+                (function (j) {
+                    setTimeout((j) => {
+                    let ball = document.createElement('div');
+                    ball.textContent = winning[i];
+                    ball.className = 'ball';
+                    
+                    let bgColor;
+                    if(winning[i] <= 10){
+                        bgColor = '#FF9696';
+                    }else if(winning[i] <= 20){
+                        bgColor = '#FFB757';
+                    }else if(winning[i] <= 30){
+                        bgColor = '#FFFF96';
+                    }else if(winning[i] <= 40){
+                        bgColor = '#78DEFF';
+                    }else {
+                        bgColor = '#BEFFBD';
+                    }
+
+                    ball.style.background = bgColor;
+                    
+                    result.appendChild(ball);
+
+                    // 보너스번호 제외 당첨번호 확인
+                    if(inputArray.indexOf(winning) == -1){
+                        lotto.textContent = `${inputArray} 를 입력하셨습니다.`;
+                    }else if(inputArray.indexOf(winning) > 0){
+                        lotto.textContent = '당첨!';
+                    }
+                    }, j * 1000);
+                })(i);
+            }
+            
+            // mixNum에서 랜덤하게 뽑힌 숫자들 중 가장 마지막 숫자를 가져온다
+            let bonus = mixNum[mixNum.length - 1]; 
+
+            setTimeout(() => {
+             // class는 여러번 사용할 수 있기때문에 몇번째 클래스를 말하는지 명시해야한다
+            let bonusDiv = document.getElementsByClassName('bonus')[0];
+            let bonusBall = document.createElement('div');
+            bonusBall.textContent = bonus;
+            bonusBall.className = 'bonusBall';
+
+            let bgColor = bonusBall.style.backgroundColor;
+            if(bonus <= 10){
+                bgColor = '#FF9696';
+            }else if(bonus <= 20){
+                bgColor = '#FFB757';
+            }else if(bonus <= 30){
+                bgColor = '#FFFF96';
+            }else if(bonus <= 40){
+                bgColor = '#78DEFF';
+            }else {
+                bgColor = '#BEFFBD';
+            }
+            bonusBall.style.background = bgColor;
+
+            bonusDiv.appendChild(bonusBall);
+
+            }, 6000);
+        }
+
+        
+    </script>
+</body>
+</html>
